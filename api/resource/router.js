@@ -6,7 +6,11 @@ const Resources = require("./model")
 
 router.post("/", (req, res, next) => {
     Resources.insert(req.body)
-        .then( resource => res.json(resource))
+        .then( newResourceID => {
+            Resources.get(newResourceID)
+                .then( newResource => res.json(newResource))
+                .catch(next);
+        })
         .catch(next);
 })
 
