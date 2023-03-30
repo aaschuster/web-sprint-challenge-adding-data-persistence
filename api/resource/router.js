@@ -16,4 +16,10 @@ router.get("/", (req, res, next) => {
         .catch(next);
 })
 
+router.get("/:id", (req, res, next) => {
+    Resources.get(req.params.id)
+        .then( resource => res.json(resource))
+        .catch(next);
+})
+
 module.exports = router;

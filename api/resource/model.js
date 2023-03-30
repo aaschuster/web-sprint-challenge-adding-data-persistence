@@ -4,7 +4,10 @@ function insert(resource) {
     return db("resources").insert(resource);
 };
 
-function get() {
+function get(id) {
+    if(id) {
+        return db("resources").where("resource_id", id);
+    }
     return db("resources");
 };
 
