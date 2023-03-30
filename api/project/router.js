@@ -4,9 +4,13 @@ const router = express.Router();
 
 const Projects = require("./model")
 
-router.post("/", (req, res, next) => {
+router.post("/",  (req, res, next) => {
     Projects.insert(req.body)
-        .then( newProjectID => res.json(newProjectID))
+        .then( newProjectID => {
+            Projects.get(newProjectID)
+                .then( newProject => res.json(newProject))
+                .catch(next);
+        })
         .catch(next);
 })
 

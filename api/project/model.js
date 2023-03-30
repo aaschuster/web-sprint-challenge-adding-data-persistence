@@ -7,7 +7,6 @@ function insert(project) {
 async function get(id) {
     if(id) {
         let project = await db("projects").where("project_id", id).first();
-        console.log(project);
         project = {...project, project_completed: (project.project_completed ? true : false)}
         return Promise.resolve(project);
     }
