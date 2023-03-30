@@ -6,7 +6,7 @@ function insert(resource) {
 
 function get(id) {
     if(id) {
-        return db("resources").where("resource_id", id);
+        return db("resources").where("resource_id", id).first();
     }
     return db("resources");
 };
