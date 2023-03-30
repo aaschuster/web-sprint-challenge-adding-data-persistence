@@ -89,7 +89,7 @@ exports.seed = async function(knex) {
       task_description: "Give up after way too long.",
       task_notes: "You can cry if you like."
     },
-  ])
+  ]);
 
   await knex('project_resources').insert([
     {
